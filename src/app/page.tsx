@@ -2,35 +2,13 @@ import ProjectCard from "@/components/ProjectCard";
 import { Shell, ShellContent } from "@/components/Shell";
 import { TypographyH2, TypographyP } from "@/components/Typography";
 import { buttonVariants } from "@/components/ui/button";
+import { getProjects, getSkills } from "@/lib/db/queries";
 import Link from "next/link";
 
-const skills = ["typescript", "python", "react", "nextjs", "postgres", "ci/cd"];
+export default async function Home() {
+  const projects = await getProjects();
+  const skills = await getSkills();
 
-const projects = [
-  {
-    id: 1,
-    title: "Placeme",
-    date: "Feb 18, 2023",
-    description:
-      "My first full-stack web app lets users post visited places on an interactive map.",
-  },
-  {
-    id: 2,
-    title: "EverWebinar custom forms implementation",
-    date: "Jan 23, 2023",
-    description:
-      "Custom form for a webinar tool, API-integrated, tested on 100k+ users.",
-  },
-  {
-    id: 3,
-    title: "Devboards",
-    date: "Apr 28, 2024",
-    description:
-      "A colaborative developer-focused project management tool inspired by Trello.",
-  },
-];
-
-export default function Home() {
   return (
     <>
       <Shell>
@@ -62,17 +40,16 @@ export default function Home() {
           <TypographyP className="leading-6">
             I work with{" "}
             {skills.map((skill, i, arr) => (
-              <>
+              <span key={skill.id}>
                 <Link
-                  key={skill}
-                  href="https://www.taskgrip.com"
+                  href="/"
                   target="_blank"
                   className={buttonVariants({ variant: "link" })}
                 >
-                  {skill}
+                  {skill.name}
                 </Link>
                 {arr.length - 1 !== i && ","}{" "}
-              </>
+              </span>
             ))}
              
           </TypographyP>
@@ -81,6 +58,7 @@ export default function Home() {
       <Shell>
         <ShellContent className="flex flex-col justify-start gap-6 sm:gap-8 md:gap-12">
           <TypographyH2 className="font-semibold">Projects</TypographyH2>
+
           <div className="flex w-full flex-col">
             {projects.map((item) => (
               <ProjectCard key={item.id} project={item} />
