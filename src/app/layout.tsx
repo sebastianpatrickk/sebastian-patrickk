@@ -37,7 +37,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex w-full flex-col divide-y divide-dashed divide-border bg-background py-8 md:py-16">
+          <div className="relative flex min-h-screen w-full flex-none flex-col bg-background">
+            <div className="hidden w-full md:inline-block">
+              <div className="relative mx-auto flex max-w-screen-md items-center justify-between border-x border-dashed border-border px-4 md:px-6">
+                <div className="h-3" />
+              </div>
+            </div>
             <Header />
             {children}
             <Footer />

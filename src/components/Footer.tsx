@@ -4,7 +4,7 @@ import { buttonVariants } from "./ui/button";
 
 export default function Footer() {
   return (
-    <Shell className="!border-b border-dashed border-border">
+    <Shell className="border-t border-dashed border-border">
       <ShellContent className="flex items-center justify-start gap-4">
         <Link href="/" className={buttonVariants({ variant: "link" })}>
           X

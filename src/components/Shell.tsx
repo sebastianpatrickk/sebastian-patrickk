@@ -17,7 +17,8 @@ const ShellContent = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "mx-auto my-7 max-w-screen-md px-4 md:my-8 md:px-10",
+      "mx-auto max-w-screen-md border-none border-border px-4 py-7 md:border-x md:border-dashed md:px-6 md:py-6",
+
       className,
     )}
     {...props}

@@ -1,4 +1,5 @@
 import ProjectCard from "@/components/ProjectCard";
+import Separator from "@/components/Separator";
 import { Shell, ShellContent } from "@/components/Shell";
 import { TypographyH2, TypographyP } from "@/components/Typography";
 import { buttonVariants } from "@/components/ui/button";
@@ -34,6 +35,7 @@ export default async function Home() {
           </div>
         </ShellContent>
       </Shell>
+      <Separator />
       <Shell>
         <ShellContent className="flex flex-col justify-start gap-4">
           <TypographyH2 className="font-semibold">Skills</TypographyH2>
@@ -55,11 +57,24 @@ export default async function Home() {
           </TypographyP>
         </ShellContent>
       </Shell>
+      <Separator />
       <Shell>
-        <ShellContent className="flex flex-col justify-start gap-6 sm:gap-8 md:gap-12">
+        <ShellContent className="flex flex-col justify-start gap-4">
           <TypographyH2 className="font-semibold">Projects</TypographyH2>
 
           <div className="flex w-full flex-col">
+            {projects.map((item) => (
+              <ProjectCard key={item.id} project={item} />
+            ))}
+          </div>
+        </ShellContent>
+      </Shell>
+      <Separator />
+      <Shell>
+        <ShellContent className="flex flex-col justify-start gap-4">
+          <TypographyH2 className="font-semibold">Writings</TypographyH2>
+
+          <div className="flex w-full flex-col gap-2">
             {projects.map((item) => (
               <ProjectCard key={item.id} project={item} />
             ))}
