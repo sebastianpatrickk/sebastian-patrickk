@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,12 +29,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-background font-mono antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} font-mono antialiased`}
       >
-        <div className="flex w-full flex-col divide-y divide-dashed divide-border py-8 md:py-16">
-          <Header />
-          {children}
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex w-full flex-col divide-y divide-dashed divide-border bg-background py-8 md:py-16">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
