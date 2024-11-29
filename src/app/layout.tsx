@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Nav from "@/components/Nav";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,16 +34,12 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
           <div className="relative flex min-h-screen w-full flex-none flex-col bg-background">
-            <div className="hidden w-full md:inline-block">
-              <div className="relative mx-auto flex max-w-screen-md items-center justify-between border-x border-dashed border-border px-4 md:px-6">
-                <div className="h-3" />
-              </div>
-            </div>
+            <Nav />
             <Header />
             {children}
             <Footer />

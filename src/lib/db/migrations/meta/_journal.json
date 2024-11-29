@@ -8,6 +8,13 @@
       "when": 1732693580514,
       "tag": "0000_stiff_galactus",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1732870186444,
+      "tag": "0001_cold_the_executioner",
+      "breakpoints": true
     }
   ]
 }

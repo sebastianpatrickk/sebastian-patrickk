@@ -4,6 +4,7 @@ export const projects = pgTable("projects", {
   id: text("cuid").primaryKey(),
   name: varchar("name", { length: 100 }),
   description: varchar("description"),
+  link: varchar("link", { length: 255 }).notNull(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
   deletedAt: timestamp("deleted_at"),
